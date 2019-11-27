@@ -10,6 +10,6 @@
 .project
 /*/target/
 target/
-/rmiserver/target/
-/rmiclient/target/
-/rmiinterface/target/
+/rmiserver/target/*
+/rmiclient/target/*
+/rmiinterface/target/*

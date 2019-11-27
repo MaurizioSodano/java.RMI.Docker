@@ -17,12 +17,15 @@ public class RemoteClient {
 		try {
 			String remoteHost = System.getenv("REMOTE_HOST");
 			remoteHost=remoteHost==null?Configuration.REMOTE_HOST:remoteHost;
+
+			log.info("Locating Registry: remoteHost:{} port:{}",remoteHost, Configuration.REMOTE_PORT);
 			reg = LocateRegistry.getRegistry(remoteHost, Configuration.REMOTE_PORT);
 
+			log.info("Lookup Interface: remoteID:{}",Configuration.REMOTE_ID);
 			RemoteInterface rmiInterface = (RemoteInterface) reg.lookup(Configuration.REMOTE_ID);
 
 			String str = "javacodegeeks rock!";
-			log.info("RMI returns:" + rmiInterface.capitalize(str));
+			log.info("RMI returns:{}" , rmiInterface.capitalize(str));
 
 		} catch (RemoteException e) {
 			log.error(e.getMessage(),e);
