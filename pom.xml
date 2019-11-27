@@ -6,18 +6,49 @@
     <groupId>com.javacodegeeks.core.rmi</groupId>
     <artifactId>rmiRemoteException</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <properties>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
-    </properties>
+    <packaging>pom</packaging>
 
-    <name>rmiTest</name>
     <description>simple example to test rmi functionalities</description>
 
-    <build>
-    </build>
-    <dependencies>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>iso-8859-1</project.build.sourceEncoding>
+    </properties>
 
+    <modules>
+        <module>rmiinterface</module>
+        <module>rmiserver</module>
+        <module>rmiclient</module>
+    </modules>
+
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 
 </project>

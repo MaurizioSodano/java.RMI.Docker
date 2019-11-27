@@ -1,1 +1,11 @@
 /.idea/
+.DS_Store
+*.iml
+./idea
+/DEPLOY_*
+.metadata/
+.settings/
+.classpath
+.project
+/*/target/
+
