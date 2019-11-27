@@ -15,7 +15,9 @@ public class RemoteClient {
 	public static void main(String[] args) throws NotBoundException {
 		Registry reg;
 		try {
-			reg = LocateRegistry.getRegistry(Configuration.REMOTE_HOST, Configuration.REMOTE_PORT);
+			String remoteHost = System.getenv("REMOTE_HOST");
+			remoteHost=remoteHost==null?Configuration.REMOTE_HOST:remoteHost;
+			reg = LocateRegistry.getRegistry(remoteHost, Configuration.REMOTE_PORT);
 
 			RemoteInterface rmiInterface = (RemoteInterface) reg.lookup(Configuration.REMOTE_ID);
 

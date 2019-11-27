@@ -15,6 +15,73 @@
     <groupId>com.javacodegeeks.core.rmi.client</groupId>
     <artifactId>rmiClient</artifactId>
 
+    <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.javacodegeeks.core.rmi.remoteclient.RemoteClient</mainClass>
+                        </manifest>
+                        <manifestEntries/>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+
+                    <descriptors>
+                        <descriptor>src/assembly/assembly.xml</descriptor>
+                    </descriptors>
+
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>assemble-all</id>
+                        <!--  phase>package</phase-->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.30.0</version>
+                <executions>
+                    <execution>
+                        <id>rmiclient</id>
+                        <!-- phase>package</phase -->
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                        <configuration>
+                            <images>
+                                <image>
+                                    <name>rmiclient</name>
+                                    <alias>dockerfile</alias>
+                                    <build>
+                                        <contextDir>${project.basedir}/src/assembly</contextDir>
+                                        <assembly>
+                                            <descriptor>${project.basedir}/src/assembly/assembly.xml</descriptor>
+                                        </assembly>
+                                    </build>
+                                </image>
+                            </images>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>com.javacodegeeks.core.rmi.interface</groupId>

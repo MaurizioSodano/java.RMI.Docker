@@ -1,0 +1,18 @@
+FROM kvelmurugan83/ubuntu-java8
+
+RUN apt install libxext6 -y
+RUN apt install libxrender1
+RUN apt install libxtst6
+RUN apt install libxi6
+
+RUN apt-get update
+#RUN apt-get install iputils-ping
+
+COPY maven/ /home/soul
+
+#COPY jolokia-jvm-1.6.2-agent.jar /home/soul
+
+
+WORKDIR /home/soul
+
+RUN chmod +x *.sh

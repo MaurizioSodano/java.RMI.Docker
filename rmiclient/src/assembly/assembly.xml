@@ -1,0 +1,31 @@
+<assembly xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+
+
+    <id>bin</id>
+
+    <formats>
+        <format>dir</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <files>
+
+        <file>
+            <source>src/assembly/launchClient.sh</source>
+            <fileMode>755</fileMode>
+        </file>
+    </files>
+
+    <fileSets>
+    </fileSets>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>/</outputDirectory>
+            <scope>runtime</scope>
+        </dependencySet>
+    </dependencySets>
+
+</assembly>

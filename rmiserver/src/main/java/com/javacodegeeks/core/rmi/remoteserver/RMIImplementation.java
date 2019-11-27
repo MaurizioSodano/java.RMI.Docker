@@ -17,8 +17,7 @@ public class RMIImplementation extends UnicastRemoteObject implements RemoteInte
 
 	@Override
 	public String capitalize(String str) throws RemoteException {
-		throw new UnexpectedException("Very unexpected");
-		//return str.toUpperCase();
+		return str.toUpperCase();
 	}
 
 }

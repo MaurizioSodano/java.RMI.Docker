@@ -1,6 +1,7 @@
 /.idea/
 .DS_Store
 *.iml
+*.class
 ./idea
 /DEPLOY_*
 .metadata/
@@ -8,4 +9,7 @@
 .classpath
 .project
 /*/target/
-
+target/
+/rmiserver/target/
+/rmiclient/target/
+/rmiinterface/target/
