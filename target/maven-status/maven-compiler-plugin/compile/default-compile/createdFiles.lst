@@ -1,0 +1,6 @@
+com\javacodegeeks\core\rmi\remoteclient\RemoteClient.class
+com\javacodegeeks\core\rmi\remoteserver\RemoteServer.class
+com\javacodegeeks\core\rmi\remoteserver\RMIImplementation.class
+com\javacodegeeks\core\rmi\rminterface\Configuration.class
+com\javacodegeeks\core\rmi\rminterface\RemoteInterface.class
+com\javacodegeeks\core\rmi\rminterface\RemoteInterface2.class
