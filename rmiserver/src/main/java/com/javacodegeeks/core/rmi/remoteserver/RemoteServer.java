@@ -16,7 +16,7 @@ public class RemoteServer {
 		RMIImplementation rmiImplementation = new RMIImplementation();
 		Registry registry = LocateRegistry.createRegistry(Configuration.REMOTE_PORT);
 		registry.bind(Configuration.REMOTE_ID, rmiImplementation);
-		log.info("Bindid  id:{} port:{}",Configuration.REMOTE_ID,Configuration.REMOTE_PORT );
+		log.info("Binded  id:{} port:{}",Configuration.REMOTE_ID,Configuration.REMOTE_PORT );
 
 	}
 

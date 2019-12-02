@@ -17,6 +17,10 @@
             <source>src/assembly/launchServer.sh</source>
             <fileMode>755</fileMode>
         </file>
+        <file>
+            <source>src/assembly/java.policy</source>
+            <fileMode>755</fileMode>
+        </file>
     </files>
 
     <fileSets>
