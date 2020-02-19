@@ -1,23 +1,21 @@
 package com.javacodegeeks.core.rmi.remoteserver;
 
-import java.rmi.RemoteException;
-import java.rmi.UnexpectedException;
-import java.rmi.server.UnicastRemoteObject;
-
 import com.javacodegeeks.core.rmi.rminterface.RemoteInterface;
 
-public class RMIImplementation extends UnicastRemoteObject implements RemoteInterface{
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
-	
-	protected RMIImplementation() throws RemoteException {
-		super();
-	}
+public class RMIImplementation extends UnicastRemoteObject implements RemoteInterface {
 
-	private static final long serialVersionUID = 1L;
+    protected RMIImplementation() throws RemoteException {
+        super();
+    }
 
-	@Override
-	public String capitalize(String str) throws RemoteException {
-		return str.toUpperCase();
-	}
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    public String capitalize(String str) throws RemoteException {
+        return str.toUpperCase();
+    }
 
 }

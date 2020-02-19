@@ -13,7 +13,7 @@
 
     <groupId>com.javacodegeeks.core.rmi.server</groupId>
     <artifactId>rmiServer</artifactId>
-    
+
     <name>rmiServer</name>
     <description>simple example to test rmi functionalities</description>
 
@@ -91,6 +91,7 @@
             <artifactId>rmiInterface</artifactId>
             <version>${project.version}</version>
         </dependency>
+
     </dependencies>
 
 
