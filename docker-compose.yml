@@ -3,13 +3,13 @@ services:
   RMI_SERVER:
     container_name: RMI_SERVER
     image: rmiserver:latest
-    entrypoint: /bin/sh -c ./launchServer.sh
+    #entrypoint: /bin/sh -c ./launchServer.sh
     ports:
       - '8888:8888'
   RMI_CLIENT:
     container_name: RMI_CLIENT
     image: rmiclient:latest
-    entrypoint: /bin/sh -c ./launchClient.sh
+    #entrypoint: /bin/sh -c ./launchClient.sh
     environment:
       REMOTE_HOST: RMI_SERVER
     depends_on:

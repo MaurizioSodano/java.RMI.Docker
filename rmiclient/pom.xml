@@ -32,50 +32,33 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>${jib-maven-plugin.version}</version>
                 <configuration>
-
-                    <descriptors>
-                        <descriptor>src/assembly/assembly.xml</descriptor>
-                    </descriptors>
-
+                    <from>
+                        <image>kvelmurugan83/ubuntu-java8</image>
+                    </from>
+                    <to>
+                        <image>rmiclient</image>
+                        <tags>
+                            <tag>latest</tag>
+                        </tags>
+                    </to>
+                    <container>
+                        <jvmFlags>
+                            <jvmFlag>-Xms256m</jvmFlag>
+                            <jvmFlag>-Xdebug</jvmFlag>
+                        </jvmFlags>
+                        <format>OCI</format>
+                    </container>
                 </configuration>
                 <executions>
                     <execution>
-                        <id>assemble-all</id>
-                        <!--  phase>package</phase-->
+                        <phase>package</phase>
                         <goals>
-                            <goal>single</goal>
+                            <goal>dockerBuild</goal>
                         </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.30.0</version>
-                <executions>
-                    <execution>
-                        <id>rmiclient</id>
-                        <!-- phase>package</phase -->
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                        <configuration>
-                            <images>
-                                <image>
-                                    <name>rmiclient</name>
-                                    <alias>dockerfile</alias>
-                                    <build>
-                                        <contextDir>${project.basedir}/src/assembly</contextDir>
-                                        <assembly>
-                                            <descriptor>${project.basedir}/src/assembly/assembly.xml</descriptor>
-                                        </assembly>
-                                    </build>
-                                </image>
-                            </images>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

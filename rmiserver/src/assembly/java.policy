@@ -1,6 +1,0 @@
-grant
-{
-   // Allow all permissions (no security)
-   permission java.security.AllPermission;
-
-};

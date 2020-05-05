@@ -14,6 +14,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>iso-8859-1</project.build.sourceEncoding>
+        <jib-maven-plugin.version>2.2.0</jib-maven-plugin.version>
     </properties>
 
     <modules>
@@ -21,7 +22,18 @@
         <module>rmiserver</module>
         <module>rmiclient</module>
     </modules>
-
+    <build>
+        <!-- Defines plugins that are used in the modules. -->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.google.cloud.tools</groupId>
+                    <artifactId>jib-maven-plugin</artifactId>
+                    <version>${jib-maven-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
     <dependencies>
         <dependency>
