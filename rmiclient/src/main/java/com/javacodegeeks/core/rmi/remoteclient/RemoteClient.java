@@ -15,6 +15,7 @@ public class RemoteClient {
 	public static void main(String[] args) throws NotBoundException {
 		Registry reg;
 		try {
+			Thread.sleep(1000);
 			String remoteHost = System.getenv("REMOTE_HOST");
 			remoteHost=remoteHost==null?Configuration.REMOTE_HOST:remoteHost;
 
@@ -27,7 +28,7 @@ public class RemoteClient {
 			String str = "javacodegeeks rock!";
 			log.info("RMI returns:{}" , rmiInterface.capitalize(str));
 
-		} catch (RemoteException e) {
+		} catch (RemoteException | InterruptedException e) {
 			log.error(e.getMessage(),e);
 		}
 	}
