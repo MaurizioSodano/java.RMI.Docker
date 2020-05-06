@@ -1,16 +1,23 @@
 version: '3.3'
+
+
 services:
   RMI_SERVER:
     container_name: RMI_SERVER
     image: rmiserver:latest
-    #entrypoint: /bin/sh -c ./launchServer.sh
+    network_mode: host
     ports:
       - '8888:8888'
+    environment:
+      - "JAVA_OPTS=-Djava.rmi.server.hostname=192.168.99.100 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.port=8888 -Dcom.sun.management.jmxremote.rmi.port=8888 -Dcom.sun.management.jmxremote.ssl=false"
+
   RMI_CLIENT:
     container_name: RMI_CLIENT
     image: rmiclient:latest
-    #entrypoint: /bin/sh -c ./launchClient.sh
     environment:
       REMOTE_HOST: RMI_SERVER
     depends_on:
       - RMI_SERVER
+    links:
+      - RMI_SERVER
+
