@@ -7,16 +7,20 @@ import java.rmi.registry.Registry;
 
 import com.javacodegeeks.core.rmi.rminterface.Configuration;
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 
 @Slf4j
 public class RemoteServer {
 
 	public static void main(String[] args) throws RemoteException, AlreadyBoundException {
 		
-		RMIImplementation rmiImplementation = new RMIImplementation();
-		Registry registry = LocateRegistry.createRegistry(Configuration.REMOTE_PORT);
+		val rmiImplementation = new RMIImplementation();
+
+		val registry = LocateRegistry.createRegistry(Configuration.getRemotePort());
+
 		registry.bind(Configuration.REMOTE_ID, rmiImplementation);
-		log.info("Binded  id:{} port:{}",Configuration.REMOTE_ID,Configuration.REMOTE_PORT );
+
+		log.info("Binded  id:{} port:{}",Configuration.REMOTE_ID,Configuration.getRemotePort() );
 
 	}
 
