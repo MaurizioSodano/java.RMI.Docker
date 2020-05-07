@@ -13,3 +13,4 @@ target/
 /rmiserver/target/*
 /rmiclient/target/*
 /rmiinterface/target/*
+.factorypath
